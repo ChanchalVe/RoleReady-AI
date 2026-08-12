@@ -1,107 +1,4 @@
-Pasted markdown(2).md
-File
-it gave me this 
-
-😭 YES. I was worried about exactly this when I read it. Cursor interpreted “detailed including everything” as “please conduct a public code audit of me.”
-
-You absolutely do not need stuff like:
-
-“No retry logic, fallback models, or dedicated AI error middleware.”
-
-or:
-
-“JWT cookies do not explicitly use httpOnly, secure, or sameSite.”
-
-or:
-
-“The resume PDF endpoint does not verify report ownership.”
-
-or:
-
-“No automated tests…”
-
-Those may be technically useful development notes, but your GitHub README is supposed to present and explain your project, not hand recruiters a list of reasons to reject it 😭.
-
-The README currently has several of these, especially in Error Handling, Security Considerations, Troubleshooting, and Future Improvements.
-
-Give Cursor this instruction
-Cursor Prompt — Clean Up README
-
-Modify ONLY README.md. Do not modify any source code, configuration, package files, environment files, or any other project file.
-
-This README is going to be publicly visible on my GitHub and used as a portfolio project for software engineering job applications.
-
-Review the entire README and remove or rewrite content that unnecessarily advertises weaknesses, bugs, vulnerabilities, missing error handling, incomplete functionality, or implementation flaws.
-
-In particular:
-
-Remove statements such as "no retry logic", "failures propagate unhandled", "no centralized error middleware", etc.
-Remove security-vulnerability-style observations about cookies, authorization gaps, rate limiting, sanitization, etc.
-Remove unnecessary descriptions of bugs or runtime failure possibilities.
-Remove statements that make the project sound broken or unfinished.
-Remove implementation limitations from troubleshooting unless they are genuinely necessary for someone to run the project.
-Do not describe missing features as flaws.
-Keep "Future Improvements", but phrase it positively as possible extensions rather than deficiencies.
-Keep the README technically truthful. Do not claim that a feature exists if it does not.
-Do not exaggerate functionality.
-Preserve useful technical details about architecture, Gemini integration, authentication, MongoDB, Zod structured output, Puppeteer PDF generation, APIs, setup, and project structure.
-Keep useful engineering highlights that demonstrate technical depth.
-Keep the distinction that the current application provides AI-powered interview preparation rather than claiming live interviewing if live interviewing is not implemented.
-Make the README sound polished, confident, professional, and recruiter-friendly.
-
-Think of the README as product documentation + a portfolio showcase, NOT a code review or security audit.
-
-IMPORTANT: The ONLY file you are allowed to modify is README.md. Do not fix any issues in the code even if you discover them.
-
-And don't worry about the version already pushed. After Cursor fixes the README, you can simply:
-
-git add README.md
-git commit -m "Improve project documentation"
-git push
-
-GitHub will show the new README as the current version. No disaster. 😂
-
-cursor limit reachedddd
-
-LMAOO 😭 okay, no Cursor needed. We already have the README content here.
-
-I can clean it up for you myself — specifically:
-
-remove the “here are all my project's problems 💀” sections/lines
-keep the strong technical details
-keep everything truthful
-make it recruiter/portfolio-friendly
-preserve setup, API docs, architecture, features, etc.
-not touch your actual code
-
-Then I'll give you the cleaned README.md, and you can replace the current one and push it.
-
-If you want, I can do that right now using the README you uploaded.
-
-yes pleaseee, but dont change the formating, only change these type of line pleaseeee
-
-Yesss 😭 done. I did not redesign, shorten, restructure, or change the formatting of your README.
-
-I only changed those “exposing my own project mistakes” type lines into professional, neutral/positive wording, while keeping the technical information truthful. The original README had those limitations in areas like AI error handling and security/development notes.
-
-Download the cleaned README.md
-
-Replace your existing README.md with this one, then:
-
-git add README.md
-git commit -m "Update README"
-git push
-
-And GitHub will immediately show the cleaned version. 😭✨ 
-
-README.md
-Document
-
-Library
-/
-README.md
-
-# Interview AI
+# RoleReady AI
 
 **AI-powered interview preparation for your next role.**
 
@@ -305,7 +202,7 @@ Screenshots are not included in the repository yet. Add them here when available
 ## Project Structure
 
 ```text
-interview-ai-yt-main/
+RoleReady-ai-main/
 ├── Backend/
 │   ├── server.js                 # Entry point, DB connect, listens on port 3000
 │   ├── package.json
@@ -629,7 +526,7 @@ No frontend environment variables are used. The API base URL is hardcoded to `ht
 
 ```bash
 git clone <repository-url>
-cd interview-ai-yt-main
+cd RoleReady-ai-main
 ```
 
 Replace `<repository-url>` with your repository URL.
