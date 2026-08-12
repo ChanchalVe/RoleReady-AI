@@ -2,7 +2,7 @@
 
 **AI-powered interview preparation for your next role.**
 
-Interview AI is a full-stack web application that helps job seekers prepare for interviews by analyzing a target job description together with their resume or self-description. Google Gemini generates a personalized interview strategy—including likely questions, skill gap analysis, a day-by-day preparation plan, and an optional tailored resume PDF.
+RoleReady AI is a full-stack web application that helps job seekers prepare for interviews by analyzing a target job description together with their resume or self-description. Google Gemini generates a personalized interview strategy—including likely questions, skill gap analysis, a day-by-day preparation plan, and an optional tailored resume PDF.
 
 ![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-7-646CFF?logo=vite&logoColor=white)
@@ -14,7 +14,7 @@ Interview AI is a full-stack web application that helps job seekers prepare for 
 
 ## Overview
 
-Interview AI is built for candidates who want structured, role-specific interview preparation instead of generic question lists. After signing in, a user provides a job description and either uploads a resume or writes a short self-description. The backend sends that context to **Google Gemini**, which returns a structured interview report. The report is saved in **MongoDB** and can be reviewed anytime from the dashboard-style home page.
+RoleReady AI is built for candidates who want structured, role-specific interview preparation instead of generic question lists. After signing in, a user provides a job description and either uploads a resume or writes a short self-description. The backend sends that context to **Google Gemini**, which returns a structured interview report. The report is saved in **MongoDB** and can be reviewed anytime from the dashboard-style home page.
 
 The application focuses on **interview planning and preparation**, not live interviewing. There is no real-time Q&A session, voice interaction, or automated scoring of spoken or typed answers during an interview. Instead, Gemini produces:
 
@@ -103,9 +103,9 @@ Optional — download AI-tailored resume PDF
 
 ---
 
-## Screenshots / Demo
+<!-- ## Screenshots / Demo
 
-Screenshots are not included in the repository yet. Add them here when available.
+Screenshots are not included in the repository yet. Add them here when available. -->
 
 <!-- Add home page screenshot here -->
 
@@ -441,13 +441,7 @@ Both AI flows use:
 - The **resume/self-description** provides candidate context for personalized questions and preparation tasks.
 - The generated report is saved verbatim in MongoDB for later retrieval and PDF export.
 
-### Real-time / live functionality
 
-There is **no** real-time or streaming Gemini integration in the current codebase. Each operation is a standard request/response API call.
-
-### Error handling and retries
-
-AI service errors are surfaced through the application's API flow so generation failures can be handled by the client.
 
 ---
 
@@ -507,9 +501,6 @@ GOOGLE_GENAI_API_KEY=your_google_genai_api_key
 | `JWT_SECRET` | Yes | Secret used to sign and verify JWTs |
 | `GOOGLE_GENAI_API_KEY` | Yes | Google Gemini API key for `@google/genai` |
 
-### Frontend
-
-No frontend environment variables are used. The API base URL is hardcoded to `http://localhost:3000` in the Axios service files.
 
 ---
 
@@ -606,22 +597,6 @@ Both settings are required for cookie-based authentication to work during local 
 
 ---
 
-## Error Handling
-
-### Backend
-
-- Auth controllers return `400` for validation and credential errors, `401` for auth middleware failures, and `404` for missing reports.
-- Database connection errors are logged through the database configuration.
-- AI and PDF generation errors are surfaced through the API flow.
-
-### Frontend
-
-- Auth and interview hooks manage API requests and application state.
-
-- Loading states are shown while auth/session restoration and report generation are in progress.
-
----
-
 ## Troubleshooting
 
 ### `vite` is not recognized
@@ -677,32 +652,6 @@ npm run dev
 - Protected interview routes require a valid, non-blacklisted token
 - Report fetch by ID checks ownership (`user: req.user.id`)
 - Secrets loaded from environment variables via `dotenv`
-
-### Recommended production practices
-
-- `.env` files are gitignored in `Backend/`, but secrets must never be committed
-- Use secure cookie settings and HTTPS when deploying to production
-- Keep authentication and authorization checks enabled for protected application resources
-- Add production-grade monitoring and validation as the application evolves
-- Expand automated testing as the application evolves
-
----
-
-## Future Improvements
-
-These are suggested enhancements and are **not** currently implemented:
-
-- Live or turn-based mock interview sessions with answer evaluation
-- Voice/audio-based interview practice
-- Expanded AI resilience and model fallback strategies
-- Support for DOCX resume parsing
-- Additional resume and profile input options
-- Enhanced user feedback and account controls
-- Interview analytics and progress tracking over time
-- Deployment configuration (Docker, CI/CD, production CORS/origin setup)
-- Expanded automated testing and API documentation tooling (OpenAPI/Swagger)
-- Accessibility and production security enhancements
-
 ---
 
 ## Challenges / Engineering Highlights
@@ -713,26 +662,3 @@ These are suggested enhancements and are **not** currently implemented:
 - **Cookie-based auth with blacklist logout:** JWT sessions integrate with SPA Axios requests while supporting token invalidation after logout.
 - **Feature-based frontend architecture:** Auth and interview domains are separated into contexts, hooks, services, and pages for clearer ownership of state and API calls.
 
----
-
-## Contributing
-
-Contributions are welcome.
-
-```text
-Fork → Create branch → Make changes → Commit → Push → Pull Request
-```
-
-Please keep changes focused, match existing project conventions, and avoid committing secrets or environment files.
-
----
-
-## License
-
-No project-level license file is currently specified in this repository.
-
----
-
-## Author
-
-No author metadata is defined in the repository configuration. Update this section if you add a `LICENSE`, `package.json` author field, or repository owner information.
