@@ -1,4 +1,4 @@
-# Interview AI
+# RoleReady AI
 
 **AI-powered interview preparation for your next role.**
 
@@ -269,7 +269,7 @@ Screenshots are not included in the repository yet.
 ## Project Structure
 
 ```text
-interview-ai-yt-main/
+RoleReady-ai-main/
 ├── Backend/
 │   ├── server.js                 # Entry point, DNS config, port 3000
 │   ├── package.json
@@ -560,7 +560,7 @@ No `VITE_*` or other frontend env vars. API URL is hardcoded to `http://localhos
 
 ```bash
 git clone <repository-url>
-cd interview-ai-yt-main
+cd RoleReady-ai-yt-main
 ```
 
 ### Backend setup
