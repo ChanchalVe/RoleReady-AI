@@ -1,8 +1,8 @@
-# RoleReady AI
+# Intervory-AI
 
 **AI-powered interview preparation for your next role.**
 
-RoleReady AI is a full-stack web application that helps job seekers prepare for interviews by analyzing a target job description together with their resume or self-description. Google Gemini generates a personalized interview strategy—including likely questions, skill gap analysis, a day-by-day preparation plan, and an optional tailored resume PDF.
+Intervory AI is a full-stack web application that helps job seekers prepare for interviews by analyzing a target job description together with their resume or self-description. Google Gemini generates a personalized interview strategy—including likely questions, skill gap analysis, a day-by-day preparation plan, and an optional tailored resume PDF.
 
 ![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-7-646CFF?logo=vite&logoColor=white)
@@ -14,7 +14,7 @@ RoleReady AI is a full-stack web application that helps job seekers prepare for 
 
 ## Overview
 
-RoleReady AI is built for candidates who want structured, role-specific interview preparation instead of generic question lists. After signing in, a user provides a job description and either uploads a resume or writes a short self-description. The backend sends that context to **Google Gemini**, which returns a structured interview report. The report is saved in **MongoDB** and can be reviewed anytime from the dashboard-style home page.
+Intervory AI is built for candidates who want structured, role-specific interview preparation instead of generic question lists. After signing in, a user provides a job description and either uploads a resume or writes a short self-description. The backend sends that context to **Google Gemini**, which returns a structured interview report. The report is saved in **MongoDB** and can be reviewed anytime from the dashboard-style home page.
 
 The application focuses on **interview planning and preparation**, not live interviewing. There is no real-time Q&A session, voice interaction, or automated scoring of spoken or typed answers during an interview. Instead, Gemini produces:
 
@@ -119,49 +119,49 @@ Screenshots are not included in the repository yet. Add them here when available
 
 ### Frontend
 
-| Technology | Purpose |
-| --- | --- |
-| **React 19** | UI components and page rendering |
-| **Vite 7** | Development server and production bundling |
+| Technology         | Purpose                                                            |
+| ------------------ | ------------------------------------------------------------------ |
+| **React 19**       | UI components and page rendering                                   |
+| **Vite 7**         | Development server and production bundling                         |
 | **React Router 7** | Client-side routing (`/login`, `/register`, `/`, `/interview/:id`) |
-| **Axios** | HTTP requests to the backend with credentials |
-| **SCSS / Sass** | Styling for forms, home page, and interview report layout |
+| **Axios**          | HTTP requests to the backend with credentials                      |
+| **SCSS / Sass**    | Styling for forms, home page, and interview report layout          |
 
 ### Backend
 
-| Technology | Purpose |
-| --- | --- |
-| **Node.js** | Runtime environment |
-| **Express 5** | REST API and middleware pipeline |
-| **Multer** | In-memory resume file upload (3 MB limit) |
-| **pdf-parse** | Extract text from uploaded PDF resumes |
-| **Puppeteer** | Convert AI-generated HTML resumes into downloadable PDFs |
-| **cookie-parser** | Read JWT cookies on protected requests |
-| **CORS** | Allow frontend origin with credentials |
+| Technology        | Purpose                                                  |
+| ----------------- | -------------------------------------------------------- |
+| **Node.js**       | Runtime environment                                      |
+| **Express 5**     | REST API and middleware pipeline                         |
+| **Multer**        | In-memory resume file upload (3 MB limit)                |
+| **pdf-parse**     | Extract text from uploaded PDF resumes                   |
+| **Puppeteer**     | Convert AI-generated HTML resumes into downloadable PDFs |
+| **cookie-parser** | Read JWT cookies on protected requests                   |
+| **CORS**          | Allow frontend origin with credentials                   |
 
 ### Database
 
-| Technology | Purpose |
-| --- | --- |
-| **MongoDB** | Persistent storage for users, reports, and blacklisted tokens |
-| **Mongoose** | Schema definitions and model queries |
+| Technology   | Purpose                                                       |
+| ------------ | ------------------------------------------------------------- |
+| **MongoDB**  | Persistent storage for users, reports, and blacklisted tokens |
+| **Mongoose** | Schema definitions and model queries                          |
 
 ### AI
 
-| Technology | Purpose |
-| --- | --- |
-| **@google/genai** | Google GenAI SDK client |
-| **gemini-3-flash-preview** | Model used for interview reports and resume HTML generation |
-| **Zod** | Schema definition for expected AI output shape |
-| **zod-to-json-schema** | Converts Zod schemas into Gemini `responseSchema` constraints |
+| Technology                 | Purpose                                                       |
+| -------------------------- | ------------------------------------------------------------- |
+| **@google/genai**          | Google GenAI SDK client                                       |
+| **gemini-3-flash-preview** | Model used for interview reports and resume HTML generation   |
+| **Zod**                    | Schema definition for expected AI output shape                |
+| **zod-to-json-schema**     | Converts Zod schemas into Gemini `responseSchema` constraints |
 
 ### Authentication
 
-| Technology | Purpose |
-| --- | --- |
-| **jsonwebtoken** | Sign and verify JWTs (1-day expiry) |
-| **bcryptjs** | Password hashing on registration and comparison on login |
-| **HTTP cookies** | Store JWT after login/register; cleared on logout |
+| Technology       | Purpose                                                  |
+| ---------------- | -------------------------------------------------------- |
+| **jsonwebtoken** | Sign and verify JWTs (1-day expiry)                      |
+| **bcryptjs**     | Password hashing on registration and comparison on login |
+| **HTTP cookies** | Store JWT after login/register; cleared on logout        |
 
 ---
 
@@ -202,7 +202,7 @@ Screenshots are not included in the repository yet. Add them here when available
 ## Project Structure
 
 ```text
-RoleReady-ai-main/
+Intervory-ai-main/
 ├── Backend/
 │   ├── server.js                 # Entry point, DB connect, listens on port 3000
 │   ├── package.json
@@ -251,13 +251,13 @@ RoleReady-ai-main/
 └── README.md
 ```
 
-| Directory | Purpose |
-| --- | --- |
-| `Backend/src/controllers` | Request handlers for auth and interview operations |
-| `Backend/src/services` | Gemini prompts, schema validation, and PDF generation |
-| `Backend/src/models` | Mongoose schemas for users, reports, and token blacklist |
-| `Frontend/src/features/auth` | Login/register flow and route protection |
-| `Frontend/src/features/interview` | Report creation, listing, viewing, and PDF download |
+| Directory                         | Purpose                                                  |
+| --------------------------------- | -------------------------------------------------------- |
+| `Backend/src/controllers`         | Request handlers for auth and interview operations       |
+| `Backend/src/services`            | Gemini prompts, schema validation, and PDF generation    |
+| `Backend/src/models`              | Mongoose schemas for users, reports, and token blacklist |
+| `Frontend/src/features/auth`      | Login/register flow and route protection                 |
+| `Frontend/src/features/interview` | Report creation, listing, viewing, and PDF download      |
 
 ---
 
@@ -267,12 +267,12 @@ Base URL (local development): `http://localhost:3000`
 
 ### Authentication APIs
 
-| Method | Endpoint | Authentication | Description |
-| --- | --- | --- | --- |
-| `POST` | `/api/auth/register` | No | Register a new user |
-| `POST` | `/api/auth/login` | No | Authenticate an existing user |
-| `GET` | `/api/auth/logout` | No* | Log out and blacklist current token |
-| `GET` | `/api/auth/get-me` | Yes | Get the logged-in user's profile |
+| Method | Endpoint             | Authentication | Description                         |
+| ------ | -------------------- | -------------- | ----------------------------------- |
+| `POST` | `/api/auth/register` | No             | Register a new user                 |
+| `POST` | `/api/auth/login`    | No             | Authenticate an existing user       |
+| `GET`  | `/api/auth/logout`   | No\*           | Log out and blacklist current token |
+| `GET`  | `/api/auth/get-me`   | Yes            | Get the logged-in user's profile    |
 
 \* Logout does not require the auth middleware, but it reads the cookie if present.
 
@@ -328,22 +328,22 @@ Base URL (local development): `http://localhost:3000`
 
 ### Interview APIs
 
-| Method | Endpoint | Authentication | Description |
-| --- | --- | --- | --- |
-| `POST` | `/api/interview/` | Yes | Generate a new interview report |
-| `GET` | `/api/interview/` | Yes | List the user's interview reports |
-| `GET` | `/api/interview/report/:interviewId` | Yes | Fetch a single report by ID |
-| `POST` | `/api/interview/resume/pdf/:interviewReportId` | Yes | Generate and download a tailored resume PDF |
+| Method | Endpoint                                       | Authentication | Description                                 |
+| ------ | ---------------------------------------------- | -------------- | ------------------------------------------- |
+| `POST` | `/api/interview/`                              | Yes            | Generate a new interview report             |
+| `GET`  | `/api/interview/`                              | Yes            | List the user's interview reports           |
+| `GET`  | `/api/interview/report/:interviewId`           | Yes            | Fetch a single report by ID                 |
+| `POST` | `/api/interview/resume/pdf/:interviewReportId` | Yes            | Generate and download a tailored resume PDF |
 
 #### `POST /api/interview/`
 
 **Body (`multipart/form-data`):**
 
-| Field | Type | Description |
-| --- | --- | --- |
-| `resume` | File | Resume PDF uploaded as `resume` |
-| `jobDescription` | String | Target job description |
-| `selfDescription` | String | Optional profile summary |
+| Field             | Type   | Description                     |
+| ----------------- | ------ | ------------------------------- |
+| `resume`          | File   | Resume PDF uploaded as `resume` |
+| `jobDescription`  | String | Target job description          |
+| `selfDescription` | String | Optional profile summary        |
 
 **Success (`201`):** Returns the full saved interview report.
 
@@ -420,19 +420,19 @@ Both AI flows use:
 
 #### Interview report schema fields
 
-| Field | Description |
-| --- | --- |
-| `matchScore` | Number from 0–100 |
-| `technicalQuestions` | Array of `{ question, intention, answer }` |
-| `behavioralQuestions` | Array of `{ question, intention, answer }` |
-| `skillGaps` | Array of `{ skill, severity }` where severity is `low`, `medium`, or `high` |
-| `preparationPlan` | Array of `{ day, focus, tasks[] }` |
-| `title` | Job title for the target role |
+| Field                 | Description                                                                 |
+| --------------------- | --------------------------------------------------------------------------- |
+| `matchScore`          | Number from 0–100                                                           |
+| `technicalQuestions`  | Array of `{ question, intention, answer }`                                  |
+| `behavioralQuestions` | Array of `{ question, intention, answer }`                                  |
+| `skillGaps`           | Array of `{ skill, severity }` where severity is `low`, `medium`, or `high` |
+| `preparationPlan`     | Array of `{ day, focus, tasks[] }`                                          |
+| `title`               | Job title for the target role                                               |
 
 #### Resume PDF schema fields
 
-| Field | Description |
-| --- | --- |
+| Field  | Description                                     |
+| ------ | ----------------------------------------------- |
 | `html` | Full HTML document rendered to PDF by Puppeteer |
 
 ### Resume and job description influence
@@ -440,8 +440,6 @@ Both AI flows use:
 - The **job description** steers question selection, match scoring, skill gap analysis, and resume tailoring.
 - The **resume/self-description** provides candidate context for personalized questions and preparation tasks.
 - The generated report is saved verbatim in MongoDB for later retrieval and PDF export.
-
-
 
 ---
 
@@ -467,10 +465,10 @@ BlacklistToken (blacklistTokens)
 
 ### `users`
 
-| Field | Notes |
-| --- | --- |
-| `username` | Unique, required |
-| `email` | Unique, required |
+| Field      | Notes                 |
+| ---------- | --------------------- |
+| `username` | Unique, required      |
+| `email`    | Unique, required      |
 | `password` | Bcrypt hash, required |
 
 ### `InterviewReport`
@@ -495,12 +493,11 @@ JWT_SECRET=your_jwt_secret
 GOOGLE_GENAI_API_KEY=your_google_genai_api_key
 ```
 
-| Variable | Required | Description |
-| --- | --- | --- |
-| `MONGO_URI` | Yes | MongoDB connection string |
-| `JWT_SECRET` | Yes | Secret used to sign and verify JWTs |
-| `GOOGLE_GENAI_API_KEY` | Yes | Google Gemini API key for `@google/genai` |
-
+| Variable               | Required | Description                               |
+| ---------------------- | -------- | ----------------------------------------- |
+| `MONGO_URI`            | Yes      | MongoDB connection string                 |
+| `JWT_SECRET`           | Yes      | Secret used to sign and verify JWTs       |
+| `GOOGLE_GENAI_API_KEY` | Yes      | Google Gemini API key for `@google/genai` |
 
 ---
 
@@ -517,7 +514,7 @@ GOOGLE_GENAI_API_KEY=your_google_genai_api_key
 
 ```bash
 git clone <repository-url>
-cd RoleReady-ai-main
+cd Intervory-ai-main
 ```
 
 Replace `<repository-url>` with your repository URL.
@@ -652,6 +649,7 @@ npm run dev
 - Protected interview routes require a valid, non-blacklisted token
 - Report fetch by ID checks ownership (`user: req.user.id`)
 - Secrets loaded from environment variables via `dotenv`
+
 ---
 
 ## Challenges / Engineering Highlights
@@ -661,4 +659,3 @@ npm run dev
 - **Dual AI workflows:** One pipeline generates analytical interview strategy data; a second generates presentational HTML and exports a PDF through Puppeteer.
 - **Cookie-based auth with blacklist logout:** JWT sessions integrate with SPA Axios requests while supporting token invalidation after logout.
 - **Feature-based frontend architecture:** Auth and interview domains are separated into contexts, hooks, services, and pages for clearer ownership of state and API calls.
-
